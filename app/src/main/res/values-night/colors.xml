@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fintech Palette - Dark Mode -->
+    <color name="colorPrimary">#5C6BC0</color>     <!-- Lighter Indigo -->
+    <color name="colorPrimaryDark">#3949AB</color> <!-- Indigo -->
+    <color name="colorAccent">#26C6DA</color>      <!-- Lighter Cyan -->
+    <color name="colorAccent_2">#FFFFFF</color>      <!-- White (inverted from black) -->
+    <color name="colorSecondary">#26C6DA</color>   <!-- Lighter Cyan -->
+    
+    <color name="colorBackground">#121212</color>  <!-- Dark Gray/Black -->
+    <color name="colorSurface">#1E1E1E</color>     <!-- Slightly Lighter Gray for cards -->
+    
+    <!-- Text Colors -->
+    <color name="colorTextPrimary">#FFFFFF</color> <!-- White text for dark mode -->
+    <color name="colorTextSecondary">#B3B3B3</color> <!-- Light grey text -->
+    
+    <color name="colorError">#CF6679</color>       <!-- Red (Dark Mode standard) -->
+    <color name="colorSuccess">#81C784</color>     <!-- Green for Income (Lighter for Dark Mode) -->
+</resources>

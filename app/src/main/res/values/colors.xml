@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Fintech Palette -->
+    <color name="colorPrimary">#3F51B5</color>     <!-- Indigo 500 -->
+    <color name="colorPrimaryDark">#303F9F</color> <!-- Indigo 700 -->
+    <color name="colorAccent">#00BCD4</color>      <!-- Cyan 500 -->
+    <color name="colorAccent_2">#000000</color>      <!-- Black -->
+    <color name="colorSecondary">#00BCD4</color>   <!-- Cyan 500 -->
+    <color name="colorBackground">#F5F5F5</color>  <!-- Light Gray -->
+    <color name="colorSurface">#FFFFFF</color>     <!-- White -->
+    <color name="colorTextPrimary">#212121</color> <!-- Dark Grey -->
+    <color name="colorTextSecondary">#757575</color> <!-- Medium Grey -->
+    <color name="colorError">#B00020</color>       <!-- Red -->
+    <color name="colorSuccess">#4CAF50</color>     <!-- Green for Income -->
+    
+</resources>
