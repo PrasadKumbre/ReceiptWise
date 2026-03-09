@@ -44,7 +44,7 @@ The app can scan receipts, automatically extract important details like **mercha
 | OCR Engine | Google ML Kit Text Recognition |
 | UI | Material Components / ConstraintLayout |
 | Architecture | Utility-based modular design |
-| Database | Room / SQLite (Local Storage) |
+| Database | SQLite (Local Storage) |
 
 ---
 
@@ -116,7 +116,7 @@ ReceiptWise handles complex receipts by:
 ---
 ## 🗄️ Database Structure
 
-ReceiptWise uses a **local SQLite / Room database** to store authentication details, income records, expense records, and transaction categories.
+ReceiptWise uses a **local SQLite** to store authentication details, income records, expense records, and transaction categories.
 
 The database design follows **normalized relational structure** with **foreign key relationships** to maintain data integrity and scalability.
 
