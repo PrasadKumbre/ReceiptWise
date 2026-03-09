@@ -114,56 +114,90 @@ ReceiptWise handles complex receipts by:
 * Change
 
 ---
-
 ## 🗄️ Database Structure
 
-ReceiptWise uses a **local Room / SQLite database** to store transactions.
+ReceiptWise uses a **local SQLite / Room database** to store authentication details, income records, expense records, and transaction categories.
+
+The database design follows **normalized relational structure** with **foreign key relationships** to maintain data integrity and scalability.
+
+---
+
+### 📑 Table: `authentication_table`
+
+Stores user login credentials and account information.
+
+| Column | Type | Description |
+|------|------|-------------|
+| id | INTEGER (Primary Key) | Unique user ID |
+| username | TEXT | User login name |
+| email | TEXT | User email address |
+| password | TEXT | Encrypted user password |
+| createdAt | TEXT | Account creation timestamp |
+
+---
+
+### 📑 Table: `income_category`
+
+Stores categories used for income transactions.
+
+| Column | Type | Description |
+|------|------|-------------|
+| id | INTEGER (Primary Key) | Unique category ID |
+| name | TEXT | Income category name (Salary, Freelance, Bonus, Investment, etc.) |
+
+---
+
+### 📑 Table: `expense_category`
+
+Stores categories used for expense transactions.
+
+| Column | Type | Description |
+|------|------|-------------|
+| id | INTEGER (Primary Key) | Unique category ID |
+| name | TEXT | Expense category name (Food, Transport, Shopping, Bills, etc.) |
+
+---
 
 ### 📑 Table: `income_table`
 
-| Column   | Type         | Description              |
-| -------- | ------------ | ------------------------ |
-| id       | INTEGER (PK) | Unique transaction ID    |
-| title    | TEXT         | Income title/description |
-| amount   | REAL         | Income amount            |
-| category | TEXT         | Income category          |
-| date     | TEXT         | Transaction date         |
-| notes    | TEXT         | Optional notes           |
+Stores all income transactions recorded by the user.
+
+| Column | Type | Description |
+|------|------|-------------|
+| id | INTEGER (Primary Key) | Unique income transaction ID |
+| title | TEXT | Title or description of income |
+| amount | REAL | Income amount |
+| category_id | INTEGER (Foreign Key) | References `income_category(id)` |
+| date | TEXT | Transaction date |
+| notes | TEXT | Optional notes |
+
+**Foreign Key Relationship**
 
 ---
 
 ### 📑 Table: `expense_table`
 
-| Column      | Type         | Description            |
-| ----------- | ------------ | ---------------------- |
-| id          | INTEGER (PK) | Unique expense ID      |
-| merchant    | TEXT         | Merchant/shop name     |
-| amount      | REAL         | Total amount           |
-| category    | TEXT         | Expense category       |
-| date        | TEXT         | Bill/receipt date      |
-| paymentMode | TEXT         | Cash / UPI / Card      |
-| rawText     | TEXT         | OCR raw extracted text |
+Stores all expense transactions including data extracted from scanned receipts.
+
+| Column | Type | Description |
+|------|------|-------------|
+| id | INTEGER (Primary Key) | Unique expense transaction ID |
+| merchant | TEXT | Merchant or shop name |
+| amount | REAL | Total expense amount |
+| category_id | INTEGER (Foreign Key) | References `expense_category(id)` |
+| date | TEXT | Receipt date |
+| paymentMode | TEXT | Payment method (Cash / UPI / Card) |
+| rawText | TEXT | Raw OCR extracted text from receipt |
 
 ---
 
-### 📑 Table: `category_table` *(Optional)*
+## 📊 Database Design Benefits
 
-| Column | Type         | Description      |
-| ------ | ------------ | ---------------- |
-| id     | INTEGER (PK) | Category ID      |
-| name   | TEXT         | Category name    |
-| type   | TEXT         | Income / Expense |
-
----
-
-### 📑 Table: `analytics_cache` *(Optional)*
-
-| Column       | Type         | Description         |
-| ------------ | ------------ | ------------------- |
-| id           | INTEGER (PK) | Cache ID            |
-| period       | TEXT         | Week / Month / Year |
-| totalIncome  | REAL         | Aggregated income   |
-| totalExpense | REAL         | Aggregated expense  |
+- Clean separation of **income and expense categories**
+- Proper **foreign key relationships**
+- Normalized schema to prevent data duplication
+- Scalable structure for future features like analytics, reports, and cloud sync
+- Efficient data querying and filtering
 
 ---
 
